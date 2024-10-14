@@ -7,6 +7,10 @@
 \usepackage{fancyhdr}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{pgfmath}
+\usetikzlibrary{automata, positioning}
+\pgfplotsset{compat=1.17}
 
 \title{\textbf{CITS2211 Assignment 2}}
 \author{Name: Baasil Siddiqui \\ Student Id: 23895849}
@@ -15,7 +19,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+% \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
 
 \begin{document}
 \parskip 2mm
@@ -45,10 +49,10 @@
 
 \begin{tikzpicture}
     \node[draw, circle] (one) at (0,0) {$1$};
-    \node[draw, circle] (two) at (2,2) {$2$};
-    \node[draw, circle] (three) at (2,-2) {$3$};
-    \node[draw, circle] (four) at (4,2) {$4$};
-    \node[draw, circle] (six) at (4,-2) {$6$};
+    \node[draw, circle] (two) at (2,1) {$2$};
+    \node[draw, circle] (three) at (2,-1) {$3$};
+    \node[draw, circle] (four) at (4,1) {$4$};
+    \node[draw, circle] (six) at (4,-1) {$6$};
     \node[draw, circle] (twelve) at (6,0) {$12$};
 
     \draw (one) -- (two);
@@ -58,6 +62,149 @@
     \draw (three) -- (six);
     \draw (four) -- (twelve);
     \draw (six) -- (twelve);
+\end{tikzpicture}
+
+\subsection*{c)}
+
+\begin{tikzpicture}
+    \node[draw, circle] (rs) at (0,1) {$RS$};
+    \node[draw, circle] (ls) at (0,-1) {$LS$};
+    \node[draw, circle] (rsh) at (2,1) {$RSH$};
+    \node[draw, circle] (lsh) at (2,-1) {$LSH$};
+
+    \draw (rs) -- (rsh);
+    \draw (ls) -- (lsh);
+\end{tikzpicture}
+
+\section*{Question 2}
+\subsection*{a)}
+
+the relation is reflexive if $\forall x \in \mathbb{R} ((x,  x) \in R)$ \\
+subtrating any real number by itself results in zero which is an integer, Hence
+R is reflexive. \\
+\\
+The relation is symmetric if for all $(x, y) \in R$, $(y, x) \in R$ if $x \neq y$
+we need to show that if x - y is an integer, y - x is an integer as well
+%
+\begin{align*}
+    \text{let } x - y &= k \text{ where } x \in \mathbb{Z} \\
+    y - x &= -k  \text{ (arithmetic)}
+\end{align*}
+%
+k is an integer so -k is an integer as \\
+hence, y - x is an integer \\
+Therefore, we have proved that is $(x, y) \in R$ then $(y, x) \in R$
+and relation R is symmetric
+\\
+The relation R is transitive if for all $x, y, z \in \mathbb{R}$ if xRy and yRz then xRz holds \\
+so we need to prove that if $x - y \in \mathbb{Z}$ and $y - z \in \mathbb{Z}$ then $x - z \in \mathbb{Z}$
+%
+\begin{align*}
+    \text{let } x - y &= k_{1} \text{ where $k_{1}$ is an integer} \\
+    \text{let } y - z &= k_{2} \text{ where $k_{2}$ is an integer} \\
+    x - z &= (x - y) + (y - z) \text{  (adding and substracting y)} \\
+    &= k_{1} + k_{2}
+\end{align*}
+both $k_{1}$ and $k_{2}$ are integers so $k_{1} + k_{2}$ is integer as well,
+so x - z is an integer and $(x, z) \in R$ and the relation R is transitive \\
+\\
+Q.E.D.
+
+\subsection*{b)}
+\textbf{i.} \\
+the equivalence class of any real number x is given by \\
+$[x] = \{y \in \mathbb{R} \;|\; y - x \in \mathbb{Z}\}$ \\
+let y - x be an integer k then y = x + k \\
+Therefore, the equivalence class of any real number x consists of all numbers
+produced by adding an integer to x
+since the numbers integers is infinite, each equivalence class is infinite
+\\ \\
+\textbf{ii.} \\
+as proved in part \textbf{i} every real number has an equivalence classes therefore,
+the total number of equivalence classes are infinite.
+
+\section*{Question 4}
+\subsection*{a)}
+\begin{tikzpicture}
+    \begin{axis}
+    [
+        xlabel={$k_1$},
+        ylabel={$k_2$},
+        title={Values of $\pi(k_1, k_2)$},
+        % ymin=0,
+        % ymax=5,
+        % xmin=0,
+        % xmax=5,
+        xtick={0,1,2,3,4,5},
+        ytick={0,1,2,3,4,5},
+    ]
+
+    % Adding labels for each (k1, k2) point
+    \foreach \kone in {0,1,2,3,4,5} {
+        \foreach \ktwo in {0,1,2,3,4,5} {
+            \pgfmathsetmacro{\piValue}{0.5*(\kone+\ktwo)*(\kone+\ktwo+1) + \ktwo}
+            \node at (axis cs:\kone,\ktwo) {$\piValue$};
+        }
+    }
+    \end{axis}
+\end{tikzpicture}
+
+\subsection*{b)}
+The function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$ \\
+We need to prove that there exists a bijection between $\mathbb{N}^n$ and $\mathbb{N}$ \\
+
+\section*{Question 6}
+\subsection*{a)}
+\textbf{States:} $Q = \{q_1, q_2, q_3\}$ \\
+\textbf{Start state:} $q_0 = q_1$ \\
+\textbf{Alphabet:} $\Sigma = \{0, 1\}$ \\
+\textbf{Accepting states:} $F = \{q_1, q_3\}$ \\
+\textbf{State transition:} $\delta : Q \times \Sigma -> \mathcal{P}(Q)$ \\
+
+\subsection*{b)}
+FSM recognises the symbols 1 and 0
+\begin{itemize}
+    \item $q_1$ is the starting state and it stays there if it reads 0 and moves to $q_2$ if it reads 1
+    \item in state $q_2$ it doesn't move if it reads 0 and moves to $q_3$ if it reads 1
+    \item in state $q_3$ it only accepts the symbol 0 and stays in $q_3$
+\end{itemize}
+states $q_1$ and $q_3$ are the accepting states \\
+Thus, the FSM accepts strings that contain exactly two 1s and any number of 0s including none anywhere
+
+\subsection*{c)}
+0*10*10*
+
+\section*{Question 7}
+\textbf{States:} \\
+set of States of the DFSM is the powerset of the states of the original NFSM \\
+$Q = \{\phi, \{q_0\}, \{q_1\}, \{q_0, q_1\}\}$ \\
+\\
+\textbf{Initial state:} \\
+The initial state of the DFSM is a singleton set containing the initial state of the NFSM \\
+$\{q_0\}$ is the initial state \\
+\\
+\textbf{Accepting states:} \\
+accepting states of the DFSM are the states containing any accepting states of NFSM \\
+$\{q_1\}$ and $\{q_0, q_1\}$ are the accepting states \\
+\\
+\textbf{The Transition Function:} \\
+The transition function, $\delta$ , returns the union of all states that are
+reachable via the original transition function $\delta'$ , by consuming the
+input from any of the NFSM states in the current DFSM state, i.e.,
+$\delta(s, x) = \bigcup \{ \delta'(q, x) \mid q \in s \}$
+
+The Result could be simpliefied by removing the state $\{q_1\}$ since there is no way
+to reach the state and it's part of the combined state $\{q_0, q_1\}$
+
+\begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto]
+   \node[state, initial] (q0)   {$\{q_0\}$};
+   \node[state, accepting, right=of q0] (q0q1) {$\{q_0, q_1\}$};
+
+    \path[->]
+    (q0) edge [loop above] node {$b$} ()
+          edge [bend left, above] node {$a$} (q0q1)
+    (q0q1) edge [bend left, below] node {$b$} (q0)
+            edge [loop above] node {$a$} ();
 \end{tikzpicture}
 
 \end{document}
