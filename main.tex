@@ -207,5 +207,22 @@ to reach the state and it's part of the combined state $\{q_0, q_1\}$
             edge [loop above] node {$a$} ();
 \end{tikzpicture}
 
+\section*{Question 8}
+\subsection*{a)}
+b*ab*aab*aaab*
+
+\subsection*{b)}
+\begin{itemize}
+    \item ((11)*)1*)* can be simplified to 1* since (11)* means even number of
+          1s and the 1* provides additional 1s which means an empty string
+          of any string made of 1s is accepted
+    \item (11 + 1)* can be simplified to 1* because 11* would be even number of
+        1s and 1* would make any number of 1s including none.
+    \item (0 + $\epsilon$)* can be simplified to 0* since $\epsilon$* can be
+        covered by no zeroes included in 0*
+    \item the expression can be further spliefied by combining 1* + 1* to 1*
+\end{itemize}
+final expression is 1* + 0*
+
 \end{document}
 
