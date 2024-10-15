@@ -153,6 +153,23 @@ the total number of equivalence classes are infinite.
 The function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$ \\
 We need to prove that there exists a bijection between $\mathbb{N}^n$ and $\mathbb{N}$ \\
 
+\section*{Question 5}
+We need to prove that a bijection from $B$ to $A^B$ doesn't exist \\
+assume a bijection f from $B$ to $A^B$ exists \\
+for every $x \in B$, $f(x) \in A^B$. f(x) is a function from B to A. \\
+Now, we can define new function $f^\prime$ such that
+$f^\prime (x) \neq (f(x))(x)$ \\
+since, $|A| > 2$ we can define this function by choosing a different value from set
+$A$ for every value of $x \in B$ \\
+the function f is a bijection so there must be some value of $x \in B$ such that
+$f(x) = f^\prime$ \\
+\\
+This contradicts with the definition of $f^\prime$ function since this would imply
+that $f(x)(y) = f^\prime(y)$ for all $y \in B$ \\
+our assumption that f is a bijection must be false
+Therefore, a bijection from set $B$ to $A^B$ doesn't exist and $|A^B| \neq |B|$. \\
+Q.E.D.
+
 \section*{Question 6}
 \subsection*{a)}
 \textbf{States:} $Q = \{q_1, q_2, q_3\}$ \\
@@ -220,7 +237,7 @@ b*ab*aab*aaab*
         1s and 1* would make any number of 1s including none.
     \item (0 + $\epsilon$)* can be simplified to 0* since $\epsilon$* can be
         covered by no zeroes included in 0*
-    \item the expression can be further spliefied by combining 1* + 1* to 1*
+    \item the expression can be further simplified by combining 1* + 1* to 1*
 \end{itemize}
 final expression is 1* + 0*
 
