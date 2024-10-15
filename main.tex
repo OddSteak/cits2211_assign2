@@ -128,30 +128,92 @@ the total number of equivalence classes are infinite.
 \begin{tikzpicture}
     \begin{axis}
     [
+        x=1cm,
+        y = 1cm,
         xlabel={$k_1$},
         ylabel={$k_2$},
         title={Values of $\pi(k_1, k_2)$},
-        % ymin=0,
-        % ymax=5,
-        % xmin=0,
-        % xmax=5,
+        ymin=0,
+        ymax=5,
+        xmin=0,
+        xmax=5,
         xtick={0,1,2,3,4,5},
         ytick={0,1,2,3,4,5},
+        grid = major
     ]
 
-    % Adding labels for each (k1, k2) point
-    \foreach \kone in {0,1,2,3,4,5} {
-        \foreach \ktwo in {0,1,2,3,4,5} {
-            \pgfmathsetmacro{\piValue}{0.5*(\kone+\ktwo)*(\kone+\ktwo+1) + \ktwo}
-            \node at (axis cs:\kone,\ktwo) {$\piValue$};
-        }
-    }
+        \node at (axis cs:0,0) [anchor=south west] {$0$};
+        \node at (axis cs:0,1) [anchor=west] {$2$};
+        \node at (axis cs:0,2) [anchor=west] {$5$};
+        \node at (axis cs:0,3) [anchor=west] {$9$};
+        \node at (axis cs:0,4) [anchor=west] {$14$};
+        \node at (axis cs:0,5) [anchor=north west] {$20$};
+
+        \node at (axis cs:1,0) [anchor=south] {$1$};
+        \node at (axis cs:1,1) [anchor=south] {$4$};
+        \node at (axis cs:1,2) [anchor=south] {$8$};
+        \node at (axis cs:1,3) [anchor=south] {$13$};
+        \node at (axis cs:1,4) [anchor=south] {$19$};
+        \node at (axis cs:1,5) [anchor=north] {$26$};
+
+        \node at (axis cs:2,0) [anchor=south] {$3$};
+        \node at (axis cs:2,1) [anchor=south] {$7$};
+        \node at (axis cs:2,2) [anchor=south] {$12$};
+        \node at (axis cs:2,3) [anchor=south] {$18$};
+        \node at (axis cs:2,4) [anchor=south] {$25$};
+        \node at (axis cs:2,5) [anchor=north] {$33$};
+
+        \node at (axis cs:3,0) [anchor=south] {$6$};
+        \node at (axis cs:3,1) [anchor=south] {$11$};
+        \node at (axis cs:3,2) [anchor=south] {$17$};
+        \node at (axis cs:3,3) [anchor=south] {$24$};
+        \node at (axis cs:3,4) [anchor=south] {$32$};
+        \node at (axis cs:3,5) [anchor=north] {$41$};
+
+        \node at (axis cs:4,0) [anchor=south] {$10$};
+        \node at (axis cs:4,1) [anchor=south] {$16$};
+        \node at (axis cs:4,2) [anchor=south] {$23$};
+        \node at (axis cs:4,3) [anchor=south] {$31$};
+        \node at (axis cs:4,4) [anchor=south] {$40$};
+        \node at (axis cs:4,5) [anchor=north] {$50$};
+
+        \node at (axis cs:5,0) [anchor=south east] {$15$};
+        \node at (axis cs:5,1) [anchor=south east] {$22$};
+        \node at (axis cs:5,2) [anchor=south east] {$30$};
+        \node at (axis cs:5,3) [anchor=south east] {$39$};
+        \node at (axis cs:5,4) [anchor=south east] {$49$};
+        \node at (axis cs:5,5) [anchor=north east] {$60$};
     \end{axis}
 \end{tikzpicture}
 
 \subsection*{b)}
-The function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$ \\
+The function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$.
 We need to prove that there exists a bijection between $\mathbb{N}^n$ and $\mathbb{N}$ \\
+We will prove this using induction \\
+let $P(k)$ be $|\mathbb{N}^k| = |\mathbb{N}|$ \\
+\\
+\textbf{\underline{Base case:}} The base case is n = 1 \\
+$\mathbb{N}^1 = \mathbb{N}$ \\
+$|\mathbb{N}| = |\mathbb{N}|$ is trivially true \\
+\\
+\textbf{\underline{Inductive Case:}} \\
+We need to prove that $P(k) \rightarrow P(k+1)$ for some arbitary $k \geq 1$ \\
+\\
+\textbf{Inductive hypothesis:} \\
+We can assume that $P(k)$ holds for an arbitary $k \geq 1$ \\
+\\
+\textbf{Inductive step:} \\
+now we need to show that $P(k+1)$ holds given $P(k)$ is true \\
+we know that there is a bijection f from $\mathbb{N}^n$ to $\mathbb{N}$ from
+the inductive hypothesis \\
+So, $\mathbb{N}^n$ can be mapped to a single natural number
+$\mathbb{N}^{n+1}$ can be written as $\mathbb{N}^n \times \mathbb{N}$ \\
+$\mathbb{N}^n \times \mathbb{N}$ can further be mapped using the function $\pi$ \\
+since we know that both $\pi$ and $f$ function are bijections, they can be
+combined to a single bijective function from $\mathbb{N}^{n+1}$ to $\mathbb{N}$ \\
+Therefore, $|\mathbb{N}^{n+1}| = |\mathbb{N}|$ \\
+Q.E.D.
+
 
 \section*{Question 5}
 We need to prove that a bijection from $B$ to $A^B$ doesn't exist \\
@@ -159,8 +221,8 @@ assume a bijection f from $B$ to $A^B$ exists \\
 for every $x \in B$, $f(x) \in A^B$. f(x) is a function from B to A. \\
 Now, we can define new function $f^\prime$ such that
 $f^\prime (x) \neq (f(x))(x)$ \\
-since, $|A| > 2$ we can define this function by choosing a different value from set
-$A$ for every value of $x \in B$ \\
+since, $|A| \geq 2$ we can define this function by choosing a different value from set
+$A$ for every value of $x \in B$ (using the diagonal argument) \\
 the function f is a bijection so there must be some value of $x \in B$ such that
 $f(x) = f^\prime$ \\
 \\
