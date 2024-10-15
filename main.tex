@@ -306,31 +306,20 @@ final expression is 1* + 0*
 
 \section*{Question 10}
 \textbf{a) $\{a^nb^ma^n \;|\; m, n \in \mathbb{N}\}$} \\
-
-\begin{tikzpicture}[shorten >=1pt, node distance=3cm, on grid, auto]
-   \node[state, accepting, initial] (q0) {$q_0$};
-   \node[state, right=of q0] (q1)   {$q_1$};
-   \node[state, right=of q1] (q2)   {$q_2$};
-   \node[state, below=of q2] (q3)   {$q_3$};
-   \node[state, left=of q3] (q4) {$q_4$};
-   \node[state, accepting, left=of q4] (q5) {$q_5$};
-
-    \path[->]
-    (q0) edge node {$\epsilon, \epsilon \rightarrow \$$} (q1)
-    (q1) edge node {$a, \epsilon \rightarrow a$} (q2)
-        (q2) edge [loop above] node {$a, \epsilon \rightarrow a$} ()
-        (q3) edge [loop below] node {$b, \epsilon \rightarrow \epsilon$} ()
-        (q4) edge [loop below] node {$a, a \rightarrow \epsilon$} ()
-    (q2) edge node {$b, \epsilon \rightarrow \epsilon$} (q3)
-    (q3) edge node {$a, a \rightarrow \epsilon$} (q4)
-    (q4) edge node {$\epsilon, \$ \rightarrow \epsilon$} (q5);
-\end{tikzpicture}
 \\
-The automata requires one a to transition to q2 and additional a's to stay in q2, all of which are pushed on to the stack \\
-It requires at least one b to transition to q3 and any additional b's keeps the state unchanged from q3 \\
-Then it requires one a to transition to q4 and any additional a's keeps the state
-unchanged and all those a's are popped from the stack,
-once the stack is empty it moves to the accepting state q5 given no input.\\
+The automata reads at least one 'a' and pushes each 'a' read onto the stack. \\
+It requires at least one b and doesn't change the stack. \\
+Then it requires at least one a and pops a from the stack for every a read.
+The PDA accepts if the stack is empty after reading the input. \\
+\\
+\textbf{a) $\{a^nb^m \;|\; n \leq m \leq 2n \land m, n \in \mathbb{N}\}$} \\
+\\
+The PDA reads at least one 'a' and pushed each 'a' read onto the stack \\
+When it starts reading 'b's it non deterministically chooses whether to pop 'a'
+from the stack for each b read or pop 'a' on reading two b's. The automata accepts
+if the stack is empty after reading the input. This ensures that for valid strings
+there is atleast one path to acceptance and the numebr of b's read is in the range
+(n, 2n).
 
 \end{document}
 
