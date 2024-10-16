@@ -304,6 +304,17 @@ b*ab*aab*aaab*
 \end{itemize}
 final expression is 1* + 0*
 
+\section*{Question 9}
+The claim is similar to the pumping lemma but the pumping length needs to be
+different for every language the condition $|w| \ge 1$ is not sufficient for
+all languages \\
+\\
+\textbf{Counter example:} \\
+Consider the language (ab)* let's take w as ab, $|w| \ge 1$ so we satisfy the condition \\
+if y = a, and i = 2, the resulting string aab is not in the language (ab)* \\
+similarly if y = b and i = 2 the resulting string abb is not in the language \\
+those are the only two possibilities of y since cardinality of y needs to be greater than 1 \\
+
 \section*{Question 10}
 \textbf{a) $\{a^nb^ma^n \;|\; m, n \in \mathbb{N}\}$} \\
 \\
@@ -320,6 +331,22 @@ from the stack for each b read or pop 'a' on reading two b's. The automata accep
 if the stack is empty after reading the input. This ensures that for valid strings
 there is atleast one path to acceptance and the numebr of b's read is in the range
 (n, 2n).
+
+\section*{Question 11}
+\textbf{a)} \\
+\\
+$A \rightarrow 0A \;|\; 1A \;|\; \epsilon $ \\
+$S \rightarrow 0A1 \;|\; 1A0 $ \\
+\\
+if the string starts at 0 then it must end with 1 and vice versa.
+within the 1 and 0, A accepts any combination of 1s and 0s \\
+\\
+\textbf{b)} \\
+\\
+$A \rightarrow 01A \;|\; 10A \;|\; \epsilon$ \\
+$S \rightarrow AS \;|\; SA \;|\; 1$ \\
+\\
+A has equal number of ones and zeroes and S adds the additional ones.
 
 \end{document}
 
