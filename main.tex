@@ -66,15 +66,33 @@
 \end{tikzpicture}
 
 \subsection*{c)}
+rs = right sock, ls = left sock, lsh = left shoe, uw = underwear,
+tr = trousers, rsh = right shoe, ts = t-shirt, ct = coat, dr = dressed
 
 \begin{tikzpicture}
-    \node[draw, circle] (rs) at (0,1) {$RS$};
-    \node[draw, circle] (ls) at (0,-1) {$LS$};
-    \node[draw, circle] (rsh) at (2,1) {$RSH$};
-    \node[draw, circle] (lsh) at (2,-1) {$LSH$};
+    \node[draw, circle] (phi) at (0,0) {$\phi$};
+    \node[draw, circle] (uw) at (2,1) {$uw$};
+    \node[draw, circle] (rs) at (2,3) {$rs$};
+    \node[draw, circle] (ls) at (2,-1) {$ls$};
+    \node[draw, circle] (ts) at (2,-3) {$ts$};
+    \node[draw, circle, right=of uw] (tr) {$tr$};
+    \node[draw, circle, right=of rs] (rsh) {$rsh$};
+    \node[draw, circle, right=of ls] (lsh) {$lsh$};
+    \node[draw, circle, right=of ts] (ct) {$ct$};
+    \node[draw, circle] (dr) at (6,0) {$dr$};
 
     \draw (rs) -- (rsh);
     \draw (ls) -- (lsh);
+    \draw (uw) -- (tr);
+    \draw (ts) -- (ct);
+    \draw (phi) -- (rs);
+    \draw (phi) -- (ls);
+    \draw (phi) -- (uw);
+    \draw (phi) -- (ts);
+    \draw (dr) -- (rsh);
+    \draw (dr) -- (tr);
+    \draw (dr) -- (lsh);
+    \draw (dr) -- (ct);
 \end{tikzpicture}
 
 \section*{Question 2}
