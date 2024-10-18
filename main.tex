@@ -398,12 +398,33 @@ The PDA accepts if the stack is empty after reading the input. \\
 \\
 \textbf{b) $\{a^nb^m \;|\; n \leq m \leq 2n \land m, n \in \mathbb{N}\}$} \\
 \\
-The PDA reads at least one 'a' and pushed each 'a' read onto the stack \\
-When it starts reading 'b's it non deterministically chooses whether to pop 'a'
-from the stack for each b read or pop 'a' on reading two b's. The automata accepts
-if the stack is empty after reading the input. This ensures that for valid strings
-there is atleast one path to acceptance and the number of b's read is in the range
-(n, 2n).
+\begin{tikzpicture}[shorten >=1pt, node distance=3cm, on grid, auto]
+   \node[state, initial] (q0)   {$q_0$};
+   \node[state] (q1) [right=of q0] {$q_1$};
+   \node[state] (q2) [right=of q1] {$q_2$};
+   \node[state] (q3) [right=of q2] {$q_3$};
+   \node[state, accepting] (q4) [right=of q3] {$q_4$};
+
+   \path[->]
+    (q0) edge  node {$a, \varepsilon \to a$} (q1)
+    (q1) edge  [loop above] node {$a, \varepsilon \to a$} ()
+         edge  node {$b, \varepsilon \to \varepsilon$} (q2)
+         edge  [bend left] node {$b, a \to \varepsilon$} (q3)
+    (q2) edge  node {$b, a \to \varepsilon$} (q3)
+    (q3) edge  [bend left] node {$\varepsilon, a \to a$} (q1)
+         edge node {$\varepsilon, \$ \to \varepsilon$} (q4);
+\end{tikzpicture}
+\\
+The PDA reads at least one 'a' and pushes each 'a' read onto the stack \\
+When it starts reading 'b's, it non-deterministically chooses whether to pop 'a'
+from the stack for one b read or pop 'a' on reading two b's. \\
+The automata accepts if the stack is empty after reading the input.
+This ensures that for valid strings there is atleast one path to acceptance
+and the number of b's read is in the range (n, 2n). \\
+If one a is poped for two bs every time the number of bs would be 2n
+and if an a is popped for each b read then the number of bs would be n. \\
+Since the choice is made non-deterministically every time. The number of bs
+read would be somewhere is between.
 
 \section*{Question 11}
 \textbf{a)} \\
