@@ -98,11 +98,11 @@ tr = trousers, rsh = right shoe, ts = t-shirt, ct = coat, dr = dressed
 \section*{Question 2}
 \subsection*{a)}
 
-the relation is reflexive if $\forall x \in \mathbb{R} ((x,  x) \in R)$ \\
+the relation is reflexive if $\forall x \in \mathbb{R}, ((x,  x) \in R)$ \\
 subtrating any real number by itself results in zero which is an integer, Hence
 R is reflexive. \\
 \\
-The relation is symmetric if for all $(x, y) \in R$, $(y, x) \in R$ if $x \neq y$
+The relation is symmetric if for all $(x, y) \in R$, $(y, x) \in R$ if $x \neq y$ \\
 we need to show that if x - y is an integer, y - x is an integer as well
 %
 \begin{align*}
@@ -110,10 +110,10 @@ we need to show that if x - y is an integer, y - x is an integer as well
     y - x &= -k  \text{ (arithmetic)}
 \end{align*}
 %
-k is an integer so -k is an integer as \\
+if k is an integer, -k is an integer as well \\
 hence, y - x is an integer \\
-Therefore, we have proved that is $(x, y) \in R$ then $(y, x) \in R$
-and relation R is symmetric
+Therefore, we have proved that if $(x, y) \in R$ then $(y, x) \in R$
+and relation R is symmetric \\
 \\
 The relation R is transitive if for all $x, y, z \in \mathbb{R}$ if xRy and yRz then xRz holds \\
 so we need to prove that if $x - y \in \mathbb{Z}$ and $y - z \in \mathbb{Z}$ then $x - z \in \mathbb{Z}$
@@ -127,7 +127,8 @@ so we need to prove that if $x - y \in \mathbb{Z}$ and $y - z \in \mathbb{Z}$ th
 both $k_{1}$ and $k_{2}$ are integers so $k_{1} + k_{2}$ is integer as well,
 so x - z is an integer and $(x, z) \in R$ and the relation R is transitive \\
 \\
-Q.E.D.
+We have proved that R is reflexive, transitive and symmetric Therefore R is
+an equivalence relation.
 
 \subsection*{b)}
 \textbf{i.} \\
@@ -136,7 +137,7 @@ $[x] = \{y \in \mathbb{R} \;|\; y - x \in \mathbb{Z}\}$ \\
 let y - x be an integer k then y = x + k \\
 Therefore, the equivalence class of any real number x consists of all numbers
 produced by adding an integer to x
-since the numbers integers is infinite, each equivalence class is infinite
+since the numbers of integers is infinite, each equivalence class is infinite
 \\ \\
 \textbf{ii.} \\
 as proved in part \textbf{i} every real number has an equivalence classes therefore,
@@ -148,9 +149,10 @@ We have 40 generations in 2000 years so the person should have $2^{40}$ ancestor
 the current poopulation is less than 8 billion which is $2^3 \times 10^9 = 2^{12} \times 5^9$
 which is less than $2^{39}$ \\
 the population has increased exponentially in 2000 years. \\
-2000 years ago was certainly way less than $2^{40}$ \\
-by pigeonhole principle at least two ancestors of the person were the
-same person \\
+The population 2000 years ago was certainly way less than $2^{40}$ \\
+The population is less than the number of ancestors \\
+Therefore, by pigeonhole principle at least two ancestors of the person were
+the same person \\
 Q.E.D.
 
 
@@ -218,7 +220,7 @@ Q.E.D.
 \end{tikzpicture}
 
 \subsection*{b)}
-The function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$.
+If the function $\pi$ is bijection between $\mathbb{N}^2$ and $\mathbb{N}$.
 We need to prove that there exists a bijection between $\mathbb{N}^n$ and $\mathbb{N}$ \\
 We will prove this using induction \\
 let $P(k)$ be $|\mathbb{N}^k| = |\mathbb{N}|$ \\
@@ -235,14 +237,19 @@ We can assume that $P(k)$ holds for an arbitary $k \geq 1$ \\
 \\
 \textbf{Inductive step:} \\
 now we need to show that $P(k+1)$ holds given $P(k)$ is true \\
-we know that there is a bijection f from $\mathbb{N}^n$ to $\mathbb{N}$ from
+we know that there is a bijection f from $\mathbb{N}^k$ to $\mathbb{N}$ from
 the inductive hypothesis \\
-So, $\mathbb{N}^n$ can be mapped to a single natural number
-$\mathbb{N}^{n+1}$ can be written as $\mathbb{N}^n \times \mathbb{N}$ \\
-$\mathbb{N}^n \times \mathbb{N}$ can further be mapped using the function $\pi$ \\
-since we know that both $\pi$ and $f$ function are bijections, they can be
-combined to a single bijective function from $\mathbb{N}^{n+1}$ to $\mathbb{N}$ \\
-Therefore, $|\mathbb{N}^{n+1}| = |\mathbb{N}|$ \\
+So, $\mathbb{N}^k$ can be mapped to a single natural number \\
+\\
+$\mathbb{N}^{k+1}$ can be written as $\mathbb{N}^k \times \mathbb{N}$ \\
+$\mathbb{N}^k \times \mathbb{N}$ can further be mapped to $\mathbb{N}$ using the function $\pi$ \\
+\\
+Construct a new function $f\prime$ from $N^{k + 1}$ to $N$ such that \\
+$f\prime = \pi (f(a_1, a_2 \dots a_k), a_{k+1})$ where $a \in \mathbb{N}$ \\
+since both $\pi$ and $f$ are biections $f\prime$ is a bijection as well \\
+\\
+Hence, The function $f\prime$ is a bijection from $N^{k+1}$ to $N$ \\
+Therefore, $|\mathbb{N}^{k+1}| = |\mathbb{N}|$ \\
 Q.E.D.
 
 
@@ -250,15 +257,16 @@ Q.E.D.
 We need to prove that a bijection from $B$ to $A^B$ doesn't exist \\
 assume a bijection f from $B$ to $A^B$ exists \\
 for every $x \in B$, $f(x) \in A^B$. f(x) is a function from B to A. \\
+\\
 Now, we can define new function $f^\prime$ such that
 $f^\prime (x) \neq (f(x))(x)$ \\
-since, $|A| \geq 2$ we can define this function by choosing a different value from set
-$A$ for every value of $x \in B$ (using the diagonal argument) \\
-the function f is a bijection so there must be some value of $x \in B$ such that
-$f(x) = f^\prime$ \\
+since, $|A| \geq 2$ we can define this function by choosing a different value
+from set A (using the diagonal argument) \\
+the function f is a bijection so there must be some value of $x \in B$
+such that $f(x) = f^\prime$ \\
 \\
 This contradicts with the definition of $f^\prime$ function since this would imply
-that $f(x)(y) = f^\prime(y)$ for all $y \in B$ \\
+that $f(x)(x) = f^\prime(x)$ \\
 our assumption that f is a bijection must be false
 Therefore, a bijection from set $B$ to $A^B$ doesn't exist and $|A^B| \neq |B|$. \\
 Q.E.D.
@@ -269,7 +277,7 @@ Q.E.D.
 \textbf{Start state:} $q_0 = q_1$ \\
 \textbf{Alphabet:} $\Sigma = \{0, 1\}$ \\
 \textbf{Accepting states:} $F = \{q_1, q_3\}$ \\
-\textbf{State transition:} $\delta : Q \times \Sigma -> \mathcal{P}(Q)$ \\
+\textbf{State transition:} $\delta : Q \times \Sigma -> Q$ \\
 
 \subsection*{b)}
 FSM recognises the symbols 1 and 0
@@ -303,33 +311,38 @@ reachable via the original transition function $\delta'$ , by consuming the
 input from any of the NFSM states in the current DFSM state, i.e.,
 $\delta(s, x) = \bigcup \{ \delta'(q, x) \mid q \in s \}$
 
-The Result could be simpliefied by removing the state $\{q_1\}$ since there is no way
-to reach the state and it's part of the combined state $\{q_0, q_1\}$
-
 \begin{tikzpicture}[shorten >=1pt, node distance=2.5cm, on grid, auto]
-   \node[state, initial] (q0)   {$\{q_0\}$};
-   \node[state, accepting, right=of q0] (q0q1) {$\{q_0, q_1\}$};
+   \node[state, initial] (q0)   {$q_0$};
+   \node[state, accepting, right=of q0] (q0q1) {$q_0, q_1$};
+   \node[state, below=of q0] (q1) {$q1$};
+   \node[state, right=of q1] (null) {$\phi$};
 
     \path[->]
     (q0) edge [loop above] node {$b$} ()
           edge [bend left, above] node {$a$} (q0q1)
     (q0q1) edge [bend left, below] node {$b$} (q0)
-            edge [loop above] node {$a$} ();
+            edge [loop above] node {$a$} ()
+    (q1) edge node {$b$} (q0)
+    (q1) edge node {$a$} (null)
+    (null) edge [loop above] node {$a, b$} ();
 \end{tikzpicture}
+
+The Result could be simplified by removing the $q_1$ and null state since they
+are unreachable.
 
 \section*{Question 8}
 \subsection*{a)}
 \textbf{i.} b*ab* \\
 %
 \textbf{ii.}
-$(ab + b)^*
+$((ab) + b)^*
 (aa)
-(ba + b)^*$ \\
+((ba) + b)^*$ \\
 %
 \textbf{iii.}
-$(ab + aab + b)^*
+$((ab) + (aab) + b)^*
 (aaa)
-(ba + baa + b)^*$ \\
+((ba) + (baa) + b)^*$ \\
 
 \subsection*{b)}
 \begin{itemize}
@@ -350,26 +363,46 @@ different for every language the condition $|w| \ge 1$ is not sufficient for
 all languages \\
 \\
 \textbf{Counter example:} \\
-Consider the language (ab)* let's take w as ab, $|w| \ge 1$ so we satisfy the condition \\
+Consider the language (ab)* let's take w as ab, $|w| \ge 1$ so we satisfy
+the condition \\
 if y = a, and i = 2, the resulting string aab is not in the language (ab)* \\
 similarly if y = b and i = 2 the resulting string abb is not in the language \\
-those are the only two possibilities of y since cardinality of y needs to be greater than 1 \\
+those are the only two possibilities of y since cardinality of y needs to be
+greater than 1 \\
+Therefore such an expression does not exist in this language.
 
 \section*{Question 10}
 \textbf{a) $\{a^nb^ma^n \;|\; m, n \in \mathbb{N}\}$} \\
-\\
-The automata reads at least one 'a' and pushes each 'a' read onto the stack. \\
+
+\begin{tikzpicture}[shorten >=1pt, node distance=3cm, on grid, auto]
+   \node[state, initial] (q_0)   {$q_0$};
+   \node[state] (q_1) [right=of q_0] {$q_1$};
+   \node[state] (q_2) [right=of q_1] {$q_2$};
+   \node[state] (q_3) [right=of q_2] {$q_3$};
+   \node[state, accepting] (q_4) [right=of q_3] {$q_4$};
+
+   \path[->]
+    (q_0) edge  node {$a, \varepsilon \to a$} (q_1)
+    (q_1) edge  [loop above] node {$a, \varepsilon \to a$} ()
+          edge  node {$b, \varepsilon \to \varepsilon$} (q_2)
+    (q_2) edge  [loop above] node {$b, \varepsilon \to \varepsilon$} ()
+          edge  node {$a, a \to \varepsilon$} (q_3)
+    (q_3) edge  [loop above] node {$a, a \to \varepsilon$} ()
+          edge node {$\varepsilon, \$ \to \varepsilon$} (q_4);
+\end{tikzpicture}
+
+The pda reads at least one 'a' and pushes each 'a' read onto the stack. \\
 It requires at least one b and doesn't change the stack. \\
 Then it requires at least one a and pops a from the stack for every a read.
 The PDA accepts if the stack is empty after reading the input. \\
 \\
-\textbf{a) $\{a^nb^m \;|\; n \leq m \leq 2n \land m, n \in \mathbb{N}\}$} \\
+\textbf{b) $\{a^nb^m \;|\; n \leq m \leq 2n \land m, n \in \mathbb{N}\}$} \\
 \\
 The PDA reads at least one 'a' and pushed each 'a' read onto the stack \\
 When it starts reading 'b's it non deterministically chooses whether to pop 'a'
 from the stack for each b read or pop 'a' on reading two b's. The automata accepts
 if the stack is empty after reading the input. This ensures that for valid strings
-there is atleast one path to acceptance and the numebr of b's read is in the range
+there is atleast one path to acceptance and the number of b's read is in the range
 (n, 2n).
 
 \section*{Question 11}
@@ -378,6 +411,7 @@ there is atleast one path to acceptance and the numebr of b's read is in the ran
 $A \rightarrow 0A \;|\; 1A \;|\; \epsilon $ \\
 $S \rightarrow 0A1 \;|\; 1A0 $ \\
 \\
+S is the start point \\
 if the string starts at 0 then it must end with 1 and vice versa.
 within the 1 and 0, A accepts any combination of 1s and 0s \\
 \\
@@ -386,6 +420,7 @@ within the 1 and 0, A accepts any combination of 1s and 0s \\
 $A \rightarrow 01A \;|\; 10A \;|\; \epsilon$ \\
 $S \rightarrow ASA \;|\; 1$ \\
 \\
+S is the start point \\
 A has equal number of ones and zeroes and S adds the additional ones.
 
 \section*{Question 12}
