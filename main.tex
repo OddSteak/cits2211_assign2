@@ -306,7 +306,7 @@ to reach the state and it's part of the combined state $\{q_0, q_1\}$
 \textbf{ii.}
 $(ab + b)^*
 (aa)
-(b + ba)^*$ \\
+(ba + b)^*$ \\
 %
 \textbf{iii.}
 $(ab + aab + b)^*
@@ -369,6 +369,24 @@ $A \rightarrow 01A \;|\; 10A \;|\; \epsilon$ \\
 $S \rightarrow ASA \;|\; 1$ \\
 \\
 A has equal number of ones and zeroes and S adds the additional ones.
+
+\section*{Question 12}
+Assume a turing machine X exists such that it returns 1 if M accepts x and returns 0
+otherwise \\
+\\
+Construct a new turing machine Y that behaves as follows -
+\begin{itemize}
+    \item Constructs a new machine Z which takes input x, runs M on x then accepts x
+    \item executes X(Z)
+\end{itemize}
+if M halts on x then then, Z accepts the input x and X returns 1 \\
+Y(M, x) = X(Z) = 1 \\
+if M does not halt on x then Z does not halt and does not accept x \\
+Y(M, a) = X(Z) = 0 \\
+\\
+hence, X decides the halting problem \\
+this is a contradiction since the halting problem is undecidable. \\
+Our assumption that such a turing machine X must be false.
 
 \end{document}
 
